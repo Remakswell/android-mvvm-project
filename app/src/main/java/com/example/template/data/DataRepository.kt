@@ -8,12 +8,8 @@ class DataRepository @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val networkDataSource: NetworkDataSource
 ) {
-    fun getInfo() : String {
-        return if (networkDataSource.getSomeNetworkData().isEmpty()) {
-            localDataSource.getSomeLocalData()
-            // TODO save to DB
-        } else {
-            networkDataSource.getSomeNetworkData()
+    fun getInfo() = networkDataSource.getDates()
+        .doOnSuccess {
+
         }
-    }
 }

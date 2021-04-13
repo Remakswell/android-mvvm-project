@@ -1,10 +1,10 @@
 package com.example.template.data.network
 
-import com.example.template.data.network.web.NetworkFaker
+import com.example.template.data.network.api.ServiceApi
 import javax.inject.Inject
 
 class NetworkDataSource @Inject constructor(
-    private val networkFaker: NetworkFaker
+    private val serviceApi: ServiceApi
 ) {
-    fun getSomeNetworkData() = networkFaker.getSomeData()
+    fun getDates() = serviceApi.getDatesWithPhoto()
 }
