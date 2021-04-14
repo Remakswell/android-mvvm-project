@@ -1,4 +1,4 @@
-package com.example.template.ui.select
+package com.example.template.ui.selectPhoto
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -8,7 +8,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.template.R
 import com.example.template.data.model.NasaDate
-import com.example.template.ui.select.SelectPhotoFragment
+import com.example.template.ui.selectPhoto.SelectPhotoFragment
 import kotlinx.android.synthetic.main.date_item.view.*
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.ItemVH>() {
@@ -36,7 +36,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ItemVH>() {
             dateTxt.text = item.date
             setOnClickListener {
                 val bundle = Bundle()
-                bundle.putString(SelectPhotoFragment.DATE_KEY, item.date)
+                bundle.putString(SelectPhotoFragment.DATE_ARG, item.date)
                 it.findNavController().navigate(R.id.action_mainFragment_to_selectPhotoFragment, bundle)
             }
         }
