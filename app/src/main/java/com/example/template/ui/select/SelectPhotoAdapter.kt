@@ -1,18 +1,15 @@
-package com.example.template.ui.main
+package com.example.template.ui.select
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.template.R
-import com.example.template.data.model.NasaDate
-import com.example.template.ui.select.SelectPhotoFragment
-import kotlinx.android.synthetic.main.date_item.view.*
+import com.example.template.data.model.NasaPhoto
+import kotlinx.android.synthetic.main.select_photo_item.view.*
 
-class MainAdapter : RecyclerView.Adapter<MainAdapter.ItemVH>() {
-    var data = listOf<NasaDate>()
+class SelectPhotoAdapter() : RecyclerView.Adapter<SelectPhotoAdapter.ItemVH>() {
+    var data = listOf<NasaPhoto>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -20,7 +17,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ItemVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemVH {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.date_item, parent, false)
+        val view = layoutInflater.inflate(R.layout.select_photo_item, parent, false)
         return ItemVH(view)
     }
 
@@ -32,12 +29,10 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ItemVH>() {
     override fun getItemCount() = data.size
 
     inner class ItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: NasaDate) = with(itemView) {
-            dateTxt.text = item.date
+        fun bind(item: NasaPhoto) = with(itemView) {
+            dateText.text = item.date
             setOnClickListener {
-                val bundle = Bundle()
-                bundle.putString(SelectPhotoFragment.DATE_KEY, item.date)
-                it.findNavController().navigate(R.id.action_mainFragment_to_selectPhotoFragment, bundle)
+
             }
         }
     }

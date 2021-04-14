@@ -12,4 +12,9 @@ class DataRepository @Inject constructor(
         .doOnSuccess {
 
         }
+
+    fun getPhotos(date: String) = networkDataSource.getPhotos(date)
+        .doOnSuccess {
+
+        }
 }

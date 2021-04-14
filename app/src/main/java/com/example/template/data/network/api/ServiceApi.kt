@@ -1,8 +1,10 @@
 package com.example.template.data.network.api
 
 import com.example.template.data.model.NasaDate
+import com.example.template.data.model.NasaPhoto
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ServiceApi {
 
@@ -13,4 +15,7 @@ interface ServiceApi {
 
     @GET("natural/all")
     fun getDatesWithPhoto() : Single<List<NasaDate>>
+
+    @GET("natural/date/{date}")
+    fun getPhotosByDate(@Path("date") date: String) : Single<List<NasaPhoto>>
 }

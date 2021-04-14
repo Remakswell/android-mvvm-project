@@ -16,10 +16,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainFragment : BaseFragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
     @Inject
     lateinit var viewModel: MainViewModel
 
@@ -32,16 +28,18 @@ class MainFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         showProgress()
+
         val mainAdapter = MainAdapter()
         val layoutManager = GridLayoutManager(context, 2)
         dateList.layoutManager = layoutManager
         dateList.adapter = mainAdapter
-        viewModel.dataInfo.observe(viewLifecycleOwner, Observer { nasaDate ->
-            nasaDate?.let {
+
+        viewModel.dataInfo.observe(viewLifecycleOwner, Observer { nasaDates ->
                 hideProgress()
-                mainAdapter.data = it
-            }
+                mainAdapter.data = nasaDates
+
         })
     }
 }
