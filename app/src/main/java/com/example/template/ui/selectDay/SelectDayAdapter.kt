@@ -1,6 +1,5 @@
-package com.example.template.ui.main
+package com.example.template.ui.selectDay
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +7,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.template.R
 import com.example.template.data.model.NasaDate
-import com.example.template.ui.selectPhoto.SelectPhotoFragment
 import kotlinx.android.synthetic.main.date_item.view.*
 
-class MainAdapter : RecyclerView.Adapter<MainAdapter.ItemVH>() {
+class SelectDayAdapter : RecyclerView.Adapter<SelectDayAdapter.ItemVH>() {
     var data = listOf<NasaDate>()
         set(value) {
             field = value
@@ -35,9 +33,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ItemVH>() {
         fun bind(item: NasaDate) = with(itemView) {
             dateTxt.text = item.date
             setOnClickListener {
-                val bundle = Bundle()
-                bundle.putString(SelectPhotoFragment.DATE_ARG, item.date)
-                it.findNavController().navigate(R.id.action_mainFragment_to_selectPhotoFragment, bundle)
+                val dateAction = SelectDayFragmentDirections.actionMainFragmentToSelectPhotoFragment(item.date)
+                it.findNavController().navigate(dateAction)
             }
         }
     }

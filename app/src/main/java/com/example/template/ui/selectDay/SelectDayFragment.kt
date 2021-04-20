@@ -1,4 +1,4 @@
-package com.example.template.ui.main
+package com.example.template.ui.selectDay
 
 
 import android.os.Bundle
@@ -10,26 +10,26 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.template.R
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.main_fragment.*
+import kotlinx.android.synthetic.main.fragment_select_day.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class SelectDayFragment : Fragment() {
 
     @Inject
-    lateinit var viewModel: MainViewModel
+    lateinit var viewModel: SelectDayViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_select_day, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mainAdapter = MainAdapter()
+        val mainAdapter = SelectDayAdapter()
         val layoutManager = GridLayoutManager(context, 2)
         dateList.layoutManager = layoutManager
         dateList.adapter = mainAdapter

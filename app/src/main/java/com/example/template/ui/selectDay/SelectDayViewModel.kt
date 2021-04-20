@@ -1,4 +1,4 @@
-package com.example.template.ui.main
+package com.example.template.ui.selectDay
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class SelectDayViewModel @Inject constructor(
     repository: DataRepository
 ) : ViewModel() {
     private val disposable: CompositeDisposable = CompositeDisposable()
