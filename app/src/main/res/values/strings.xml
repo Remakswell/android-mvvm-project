@@ -5,4 +5,5 @@
     <string name="share">Share</string>
     <string name="set_as_wallpaper_completed">Photo set as wallpaper</string>
     <string name="photo_is_loading">Photo is loading</string>
+    <string name="permission_denied">Permission denied</string>
 </resources>
