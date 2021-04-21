@@ -12,10 +12,10 @@
     <TextView
         android:id="@+id/dateText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/margin_small"
         app:drawableStartCompat="@android:drawable/ic_menu_gallery"
-        tools:text="date" />
+        tools:text="time" />
 
 </androidx.cardview.widget.CardView>
