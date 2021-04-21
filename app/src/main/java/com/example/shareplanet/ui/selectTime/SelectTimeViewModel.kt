@@ -1,5 +1,6 @@
 package com.example.shareplanet.ui.selectTime
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,6 +14,7 @@ import javax.inject.Inject
 class SelectTimeViewModel @Inject constructor(
     private val repository: DataRepository
 ) : ViewModel() {
+    private val TAG = "SelectTimeViewModel"
     private val disposable: CompositeDisposable = CompositeDisposable()
 
     private val _nasaPhotos = MutableLiveData<List<NasaPhoto>>()
@@ -23,9 +25,11 @@ class SelectTimeViewModel @Inject constructor(
         disposable.add(repository.getPhotos(selectedDate)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { result ->
-                _nasaPhotos.value = result
-            })
+            .subscribe(
+                { result -> _nasaPhotos.value = result },
+                { th -> Log.e(TAG, th.toString()) }
+            )
+        )
     }
 
     override fun onCleared() {

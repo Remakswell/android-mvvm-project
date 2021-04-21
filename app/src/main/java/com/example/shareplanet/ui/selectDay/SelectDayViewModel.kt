@@ -1,5 +1,6 @@
 package com.example.shareplanet.ui.selectDay
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,6 +14,8 @@ import javax.inject.Inject
 class SelectDayViewModel @Inject constructor(
     repository: DataRepository
 ) : ViewModel() {
+
+    private val TAG = "SelectDayViewModel"
     private val disposable: CompositeDisposable = CompositeDisposable()
 
     private val _dataInfo = MutableLiveData<List<NasaDate>>()
@@ -20,12 +23,15 @@ class SelectDayViewModel @Inject constructor(
         get() = _dataInfo
 
     init {
-        disposable.add(repository.getInfo()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { result ->
-                _dataInfo.value = result
-            })
+        disposable.add(
+            repository.getInfo()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { result -> _dataInfo.value = result },
+                    { th -> Log.e(TAG, th.toString()) }
+                )
+        )
     }
 
     override fun onCleared() {
