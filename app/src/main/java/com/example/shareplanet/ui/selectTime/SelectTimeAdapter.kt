@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shareplanet.R
 import com.example.shareplanet.data.model.NasaPhoto
-import kotlinx.android.synthetic.main.select_photo_item.view.*
+import kotlinx.android.synthetic.main.time_item.view.*
 
 class SelectTimeAdapter() : RecyclerView.Adapter<SelectTimeAdapter.ItemVH>() {
     var data = listOf<NasaPhoto>()
@@ -18,7 +18,7 @@ class SelectTimeAdapter() : RecyclerView.Adapter<SelectTimeAdapter.ItemVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemVH {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.select_photo_item, parent, false)
+        val view = layoutInflater.inflate(R.layout.time_item, parent, false)
         return ItemVH(view)
     }
 

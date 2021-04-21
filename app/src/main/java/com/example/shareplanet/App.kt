@@ -13,6 +13,10 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        initImageLoader()
+    }
+
+    private fun initImageLoader() {
         val defaultOptions = DisplayImageOptions.Builder()
             .cacheInMemory(true)
             .build()

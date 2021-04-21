@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shareplanet.R
 import com.example.shareplanet.data.model.NasaDate
-import kotlinx.android.synthetic.main.date_item.view.*
+import kotlinx.android.synthetic.main.day_item.view.*
 
 class SelectDayAdapter : RecyclerView.Adapter<SelectDayAdapter.ItemVH>() {
     var data = listOf<NasaDate>()
@@ -18,7 +18,7 @@ class SelectDayAdapter : RecyclerView.Adapter<SelectDayAdapter.ItemVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemVH {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.date_item, parent, false)
+        val view = layoutInflater.inflate(R.layout.day_item, parent, false)
         return ItemVH(view)
     }
 
